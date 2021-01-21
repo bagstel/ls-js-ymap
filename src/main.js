@@ -6,9 +6,10 @@ const api = require('./js/api.js');
 ymaps.ready(async () => {
   console.log('Ymaps ready');
   
-  const customBalloonTemplate = document.getElementById('customBalloonTemplate').innerHTML;
   const customClustererItemLayout = document.getElementById('customClustererItemLayout').innerHTML;
+  const customBalloonTemplate = document.getElementById('customBalloonTemplate').innerHTML;
 
+  const clustererItemLayout = ymaps.templateLayoutFactory.createClass(customClustererItemLayout);
   const balloonTemplate = ymaps.templateLayoutFactory.createClass(customBalloonTemplate, {
     build: function () {
       this.constructor.superclass.build.call(this);
@@ -59,7 +60,6 @@ ymaps.ready(async () => {
       return element && element[0] && element.find('.arrow')[0];
     }
   });
-  const clustererItemLayout = ymaps.templateLayoutFactory.createClass(customClustererItemLayout);
 
   ymaps.layout.storage.add('my#customBalloonLayout', balloonTemplate);
   ymaps.layout.storage.add('my#clustererItemLayout', clustererItemLayout);

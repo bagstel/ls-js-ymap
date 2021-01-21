@@ -33,7 +33,7 @@ function getPlacmarks () {
 async function getPlacmark (coords) {
   coords = _toString(coords);
 
-  const placemarks = JSON.parse(localStorage.getItem('placemarks'));
+  const placemarks = JSON.parse(localStorage.getItem('placemarks') || '{}');
   const placemark = placemarks[coords] ? placemarks[coords] : null;
 
   return new Promise(resolve => {
@@ -46,7 +46,7 @@ async function getPlacmark (coords) {
 async function setPlacmark (coords, payload) {
   coords = _toString(coords);
 
-  const placemarks = JSON.parse(localStorage.getItem('placemarks'));
+  const placemarks = JSON.parse(localStorage.getItem('placemarks') || '{}');
   let status = false;
   
   if (placemarks[coords]) {
