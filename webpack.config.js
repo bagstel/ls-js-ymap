@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
     mode: 'development',
     entry: ["./src/main.scss", "./src/main.js"],
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "docs"),
       filename: "[fullhash].[name].js",
     },
     module: {
@@ -37,11 +37,11 @@ module.exports = (env, argv) => {
         patterns: [
           { 
             from: path.resolve(__dirname, "src/img"), 
-            to: path.resolve(__dirname, 'dist/img')
+            to: path.resolve(__dirname, 'docs/img')
           },
           { 
             from: path.resolve(__dirname, "src/favicon.ico"), 
-            to: path.resolve(__dirname, 'dist')
+            to: path.resolve(__dirname, 'docs')
           }
         ]
       }),
